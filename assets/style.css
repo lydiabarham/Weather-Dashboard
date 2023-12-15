@@ -37,3 +37,7 @@
     height: 10rem;
     padding: 20px;
 }
+
+#forecast-header {
+    border-bottom: #008080 1px dotted;
+}
