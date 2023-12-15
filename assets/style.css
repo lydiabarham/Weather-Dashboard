@@ -1,0 +1,39 @@
+#header {
+    height: 100px;
+    text-align: center;
+    padding: 20px;
+    background-image: linear-gradient(to right, #00165A , #008080);
+    color: white;
+}
+
+#search-container { 
+    border: #008080 solid 1px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#form-heading {
+    padding-bottom: 10px;
+}
+
+#search-button {
+    background-color: #00165A;
+    opacity: 0.9;
+    border-radius: 5px;
+    color: white;
+    margin-left: 20px;
+}
+
+#today {
+    border: #00165A solid 1px;
+    border-radius: 5px;
+    height: 5rem;
+    padding: 20px;
+}
+
+#forecast {
+    border: #008080 solid 1px;
+    border-radius: 5px;
+    height: 10rem;
+    padding: 20px;
+}
