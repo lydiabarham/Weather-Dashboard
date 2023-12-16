@@ -27,7 +27,7 @@
 #today {
     border: #00165A solid 1px;
     border-radius: 5px;
-    height: 5rem;
+    height: flex;
     padding: 20px;
 }
 
@@ -40,4 +40,8 @@
 
 #forecast-header {
     border-bottom: #008080 1px dotted;
+}
+
+#city-name { 
+    display: inline-block;
 }
