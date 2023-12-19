@@ -12,6 +12,10 @@
     padding: 20px;
 }
 
+#search-input {
+    max-height: 30px;
+}
+
 #form-heading {
     padding-bottom: 10px;
 }
@@ -22,6 +26,21 @@
     border-radius: 5px;
     color: white;
     margin-left: 20px;
+    max-height: 30px;
+}
+
+.history-item {
+    list-style-type: none;
+}
+
+.history-button {
+    background-color: #00165A;
+    opacity: 0.9;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+    margin: 5px;
+
 }
 
 #today {
