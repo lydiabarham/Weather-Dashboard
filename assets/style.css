@@ -6,6 +6,9 @@
     color: white;
 }
 
+#search-container {
+    border: none;
+}
 
 #search-input {
     height: 30px;
