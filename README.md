@@ -15,7 +15,7 @@ The site is deployed at: https://lydiabarham.github.io/Weather-Dashboard/
 
 # Credits 
 
-Starter code was provided by EdX and the site uses the OpenWeatherMap API to source live weather information. Further code was sourced from StackOverFlow and W3Schools 
+Starter code was provided by EdX and the site uses the OpenWeatherMap API (https://openweathermap.org/api) to source live weather information. Further code was sourced from StackOverFlow and W3Schools. 
 
 # License 
 N/A
