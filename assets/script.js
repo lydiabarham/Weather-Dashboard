@@ -1,7 +1,9 @@
 // retrieve history from local storage
 const printInput = function () {
     const searchHistory = $("<ul>");
-    for (let i = 0; i < localStorage.length && i < 6; i++) {
+
+    // Adjust the loop to iterate over the correct number of saved items
+    for (let i = 0; i < Math.min(localStorage.length, 6); i++) {
         const historyItem = $("<li>");
         historyItem.addClass("history-item");
         const historyButton = $("<button>");
@@ -10,22 +12,14 @@ const printInput = function () {
         historyItem.append(historyButton);
         searchHistory.append(historyItem);
     }
-    $("#search-history").append(searchHistory);
+    $("#search-history").html(searchHistory);
 }
 
-$(document).ready(function () {
-    printInput();
-});
-
-// event listener for the form submission
-$('#search-form').on('submit', function (e) {
-    e.preventDefault();
-
+const displayWeather = function () {
     const placeName = $('#search-input').val();
     if (placeName !== "") {
-
         // save to local storage
-        for (let i = localStorage.length - 1; i > 0; i--) {
+        for (let i = Math.min(localStorage.length, 5); i > 0; i--) {
             const itemName = `name${i}`;
             const prevItemName = `name${i - 1}`;
             const prevItem = localStorage.getItem(prevItemName);
@@ -40,7 +34,6 @@ $('#search-form').on('submit', function (e) {
         $('#search-input').val("");
 
         // print search history list 
-        $("#search-history").empty();
         printInput();
 
         // weather API
@@ -84,5 +77,19 @@ $('#search-form').on('submit', function (e) {
                     })
             });
     }
+};
 
+$(document).ready(function () {
+    printInput();
+});
+
+// event listeners for the form submission
+$('#search-form').on('submit', function(e) {
+    e.preventDefault();
+    displayWeather();
+});
+
+$("#search-history").on("click", ".history-button", function () {
+    $("#search-input").val($(this).text());
+    $("#search-form").submit();
 });
