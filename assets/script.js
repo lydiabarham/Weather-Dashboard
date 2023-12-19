@@ -2,7 +2,6 @@
 const printInput = function () {
     const searchHistory = $("<ul>");
 
-    // Adjust the loop to iterate over the correct number of saved items
     for (let i = 0; i < Math.min(localStorage.length, 6); i++) {
         const historyItem = $("<li>");
         historyItem.addClass("history-item");
@@ -74,7 +73,37 @@ const displayWeather = function () {
                         $("#temp-display").text("Temp: " + tempCelcius + "°C");
                         $("#wind-display").text("Wind: " + data.list[0].wind.speed + "KPH")
                         $("#humidity-display").text("Humidity: " + data.list[0].main.humidity + "%");
-                    })
+
+                        $("#card-container").empty();
+                    
+                        for (i = 1; i < 6; i++) {
+                            const weatherCard = $("<div>");
+                            weatherCard.addClass("card");
+                            const cardDateDisplay = $("<p>");
+                            cardDateDisplay.text(data.list[i].dt_txt.slice(0, 10));
+                            const cardIcon = $("<img>");
+                            cardIcon.css("height", "40px")
+                            cardIcon.css("width", "40px");
+                            const iconcodeCard = data.list[i].weather[0].icon;
+                            const iconurlCard = "http://openweathermap.org/img/w/" + iconcodeCard + ".png";
+                            cardIcon.attr("src", iconurlCard);
+                            const celcius = function (K) {
+                                return K - 273.15
+                            }
+                            const tempCelcius = parseInt(parseFloat(celcius(data.list[i].main.temp)));
+                            const cardTemp = $("<p>"); 
+                            cardTemp.text("Temp: " + tempCelcius + "°C");
+                            const cardWind = $("<p>"); 
+                            cardWind.text("Wind: " + data.list[i].wind.speed + "KPH")
+                            const cardHumidity = $("<p>"); 
+                            cardHumidity.text("Humidity: " + data.list[i].main.humidity + "%");
+                            weatherCard.append(cardDateDisplay, cardIcon, cardTemp, cardWind, cardHumidity);
+                            $("#card-container").append(weatherCard);
+                            }
+                
+                })
+
+                    
             });
     }
 };
